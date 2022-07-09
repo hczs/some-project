@@ -43,4 +43,9 @@ public class AppConstants {
      */
     public static boolean runFlag = true;
 
+    /**
+     * 欢迎语
+     */
+    public static final String WELCOME_SERVER = "Welcome to My Echo Server.";
+
 }

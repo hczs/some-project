@@ -36,16 +36,13 @@ public class AppUtil {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN_MS));
     }
 
+    /**
+     * 获取当前时间
+     * 格式 yyyy-MM-dd HH:mm:ss
+     * @return 例如：2022-07-05 21:53:26
+     */
     public static String getNowDateTime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN));
-    }
-
-    /**
-     * 获取欢迎语
-     * @return 例如 2020-03-31 16:58:44.049 - Welcome to My Echo Server.(from SERVER)
-     */
-    public static String getWelcomeString() {
-        return getNowDateTimeWithMs() + " - Welcome to My Echo Server.(from SERVER)";
     }
 
     /**

@@ -61,7 +61,7 @@ public class EchoServer {
         // 主线程进行打印管理端
         Scanner scanner = new Scanner(System.in);
         // 打印欢迎语
-        System.out.println(AppUtil.getWelcomeString());
+        System.out.println(AppUtil.wrapDatetime(AppConstants.WELCOME_SERVER));
         while (AppConstants.runFlag) {
             System.out.print("Enter(h for help): ");
             String cmd = scanner.nextLine();
@@ -137,7 +137,7 @@ public class EchoServer {
                 AppUtil.getNowDateTime(), socketChannel);
         clients.add(clientBO);
         // 监听读这个 socketChannel 的写事件，附加上欢迎语
-        socketChannel.register(this.selector, SelectionKey.OP_WRITE, AppUtil.getWelcomeString());
+        socketChannel.register(this.selector, SelectionKey.OP_WRITE, AppConstants.WELCOME_SERVER);
     }
 
     /**
@@ -199,10 +199,14 @@ public class EchoServer {
             case AppConstants.QUIT:
                 exitServer();
                 break;
-            default:
+            case AppConstants.HELP:
                 printHelp();
+                break;
+            default:
+                System.out.println("\""+ cmd + "\" Command not found, enter \"h\" for more help");
         }
     }
+
 
     /**
      * 打印使用说明
